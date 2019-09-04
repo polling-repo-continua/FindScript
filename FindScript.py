@@ -263,7 +263,7 @@ def checkArgs():
         printFailure('Only One Extension Allowed.')
         sys.exit()
 
-    if not re.search(RE_VALID_ARGS_URL, args.url):
+    if not re.search(RE_VALID_ARGS_URL, args.url) or 'http://' in args.url or 'https://' in args.url:
         printFailure('Invalid URL! Try Something Like: www.example.com')
         sys.exit()
 
