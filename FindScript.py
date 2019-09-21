@@ -224,7 +224,7 @@ def search_github():
                 
                 else:
                     printWarning('Mission Failed: Github Blocked Us.')
-                    resolve_and_test(found_urls)
+                    resolve_and_test(found_urls, 'Github')
                     githubBlocked = True
                     break                
 
