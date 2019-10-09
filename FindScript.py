@@ -218,7 +218,7 @@ def search_github():
             try:
                 found_url = github_search_asc[index]
 
-            except (GithubException, IndexError) as e:
+            except (GithubException, IndexError, socket.timeout) as e:
                 if 'index' in str(e):
                     break
                 
@@ -234,7 +234,7 @@ def search_github():
             try:
                 found_url = github_search_desc[index]
 
-            except (GithubException, IndexError) as e:
+            except (GithubException, IndexError, socket.timeout) as e:
                 if 'index' in str(e):
                     break
 
