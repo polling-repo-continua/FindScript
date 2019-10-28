@@ -8,7 +8,7 @@ It saved me a ton of since going throgh the results manually can take ages.
 
 ## Dependencies
 
-FindScript uses [PyGithub](https://github.com/PyGithub/PyGithub) and [colorama](https://github.com/tartley/colorama). <br/>
+FindScript uses [PyGithub](https://github.com/PyGithub/PyGithub). <br/>
 `pip3 install -r requirements.txt`
 <br/> <br/>
 You will also need to create a Github Token with no permissions to effectively use the Github API. You can do that here: https://github.com/settings/tokens. Save the token and replace `YOUR_TOKEN_HERE` with your token. 
@@ -17,19 +17,6 @@ You will also need to create a Github Token with no permissions to effectively u
 
 ```
 $ python3 FindScript.py -h
-
-  ______ _           _  _____           _       _   
- |  ____(_)         | |/ ____|         (_)     | |  
- | |__   _ _ __   __| | (___   ___ _ __ _ _ __ | |_ 
- |  __| | | '_ \ / _` |\___ \ / __| '__| | '_ \| __|
- | |    | | | | | (_| |____) | (__| |  | | |_) | |_ 
- |_|    |_|_| |_|\__,_|_____/ \___|_|  |_| .__/ \__|
-                                         | |        
-                                         |_| 
-Version: 1.1
-By 0x41CoreDump
-
-
 usage: FindScript.py [-h] -u URL [--include-unresolvable] [-e EXTENSION]
                      [-gop GOOGLE_PAGES] [-gip GITHUB_PAGES] [-o OUTPUT]
 
