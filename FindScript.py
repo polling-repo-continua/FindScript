@@ -30,7 +30,7 @@ parser.add_argument('-o', '--output', type=str, required=False)
 
 args = parser.parse_args()
 
-RE_GOOGLE_URL = r'(?<=\<div class=\"r\"\>\<a href\=\")https?://[a-zA-Z\.0-9\/\@-]*(?=\")'
+RE_GOOGLE_URL = r'(?<=\<div class=\"r\"\>\<a href\=\")https?://[a-zA-Z\.0-9\/\@\_-]*(?=\")'
 RE_VALID_ARGS_URL = r'[a-z0-9\.]+\.[a-z]+'
 GOOGLE_TLDS = ['de', 'com', 'dk', 'com.au', 'se', 'fr', 'es', 'pt', 'pl', 'ca', 'at']
 GITHUB_TOKEN = 'YOUR_TOKEN_HERE'
