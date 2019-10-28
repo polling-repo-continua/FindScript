@@ -13,25 +13,11 @@ import urllib.error
 import urllib.request
 
 try:
-    from colorama import Fore, Style
     from github import Github, GithubException
 
 except ImportError as e:
     print(e)
     sys.exit()
-
-banner = '''
-  ______ _           _  _____           _       _   
- |  ____(_)         | |/ ____|         (_)     | |  
- | |__   _ _ __   __| | (___   ___ _ __ _ _ __ | |_ 
- |  __| | | '_ \ / _` |\___ \ / __| '__| | '_ \| __|
- | |    | | | | | (_| |____) | (__| |  | | |_) | |_ 
- |_|    |_|_| |_|\__,_|_____/ \___|_|  |_| .__/ \__|
-                                         | |        
-                                         |_| 
-'''
-
-print(Fore.YELLOW+banner+Style.RESET_ALL+"Version: 1.1\nBy 0x41CoreDump\n\n")
 
 parser = argparse.ArgumentParser(description='Scrape Scripts From Google And Github')
 
@@ -47,7 +33,7 @@ args = parser.parse_args()
 RE_GOOGLE_URL = r'(?<=\<div class=\"r\"\>\<a href\=\")https?://[a-zA-Z\.0-9\/\@-]*(?=\")'
 RE_VALID_ARGS_URL = r'[a-z0-9\.]+\.[a-z]+'
 GOOGLE_TLDS = ['de', 'com', 'dk', 'com.au', 'se', 'fr', 'es', 'pt', 'pl', 'ca', 'at']
-GITHUB_TOKEN = 'YOUR_KEY_HERE'
+GITHUB_TOKEN = 'YOUR_TOKEN_HERE'
 
 valid_js_urls = []
 google_finished = False
@@ -55,16 +41,20 @@ github_finished = False
 
 
 def printWarning(text):
-    print('['+Fore.YELLOW+'!'+Style.RESET_ALL+'] '+text)
+    print("[\033[33m!\033[0m] "+text)
+
 
 def printFailure(text):
-    print('['+Fore.RED+'!'+Style.RESET_ALL+'] '+text)
+    print("[\033[31m!\033[0m] "+text)
+
 
 def printSuccess(text):
-    print('['+Fore.GREEN+'+'+Style.RESET_ALL+'] '+text)
+    print("[\033[32m+\033[0m] "+text)
+
 
 def printInfo(text):
-    print('['+Fore.BLUE+'-'+Style.RESET_ALL+'] '+text)
+    print("[\033[34m-\033[0m] "+text)
+
 
 def resolve_and_test(url_list, source):
 
@@ -76,7 +66,7 @@ def resolve_and_test(url_list, source):
     splitted_u.remove(tld)
     u = ".".join(splitted_u)
 
-    re_valid_js_url = r'[a-z\.]*{}\.{}\/[a-zA-Z0-9\/\.\:\?\+\-]*\.{}'.format(u, tld, args.extension)
+    re_valid_js_url = r'(?<=[^\w]){}\.{}\/[\/\w\.-]+\.{}|[a-zA-Z0-9\.]+\.{}\.{}\/[\/\w\.-]+\.{}'.format(u, tld, args.extension, u, tld, args.extension)
 
     for url in url_list:
 
@@ -264,7 +254,7 @@ def checkArgs():
         sys.exit()
 
     if not re.search(RE_VALID_ARGS_URL, args.url) or 'http://' in args.url or 'https://' in args.url:
-        printFailure('Invalid URL! Try Something Like: www.example.com')
+        printFailure('Invalid URL! Try Something Like: example.com')
         sys.exit()
 
     try:
@@ -308,5 +298,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-
