@@ -64,7 +64,7 @@ def resolve_and_test(url_list, source):
 
     tld = splitted_u[len(splitted_u)-1]
     splitted_u.remove(tld)
-    u = ".".join(splitted_u)
+    u = "\.".join(splitted_u)
 
     re_valid_js_url = r'(?<=[^\w]){}\.{}\/[\/\w\.-]+\.{}|[a-zA-Z0-9\.]+\.{}\.{}\/[\/\w\.-]+\.{}'.format(u, tld, args.extension, u, tld, args.extension)
 
