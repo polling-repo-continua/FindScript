@@ -2,9 +2,7 @@
 A tool that scrapes Google and Github to find files with a given extension from a given url.
 
 ## How it works
-
-You give FindScript a URL and it queries a google search, regex the results URLs out of it, gets the source code of the resulted URLs and tries to find your desired files in it. Simultaneously, it does the same with Github. It queries a Github code search, gets the content of each of the results and tries to find your desired files in them. <br/>
-It saved me a ton of since going throgh the results manually can take ages.
+You give FindScript a domain and it queries a google search, gets the source code of the goole search results and tries to find matching URLs in it. Simultaneously, it does the same with Github. It queries a Github code search, gets the content of each of the results and tries to find matches. <br/>
 
 ## Dependencies
 
