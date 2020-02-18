@@ -1,37 +1,27 @@
 # FindScript
-A tool that scrapes Google and Github to find files with a given extension from a given url.
 
-## How it works
-You give FindScript a domain and it queries a google search, gets the source code of the goole search results and tries to find matching URLs in it. Simultaneously, it does the same with Github. It queries a Github code search, gets the content of each of the results and tries to find matches. <br/>
+A tool that scrapes Google, Github and the Wayback Machine to find files with a given extension for a given url.
 
-## Dependencies
+### Dependencies
 
 FindScript uses [PyGithub](https://github.com/PyGithub/PyGithub). <br/>
 `pip3 install -r requirements.txt`
 <br/> <br/>
-You will also need to create a Github Token with no permissions to effectively use the Github API. You can do that here: https://github.com/settings/tokens. Save the token and replace `YOUR_TOKEN_HERE` with your token. 
+You will also need to create a Github Token with no permissions. You can do that here: https://github.com/settings/tokens. Save the token and replace `YOUR_TOKEN_HERE` with your token in [lib/github.py](lib/github.py). 
 
-## Usage
+### Usage
 
 ```
 $ python3 FindScript.py -h
-usage: FindScript.py [-h] -u URL [--include-unresolvable] [-e EXTENSION]
-                     [-gop GOOGLE_PAGES] [-gip GITHUB_PAGES] [-o OUTPUT]
-
-Scrape Scripts From Google And Github
+usage: findscript.py [-h] -u URL [--include-unresolvable] [-e EXTENSION] [-gop GOOGLE_PAGES] [-gip GITHUB_PAGES] [-o OUTPUT]
 
 optional arguments:
   -h, --help            show this help message and exit
-  -u URL, --url URL     The Target Domain
+  -u URL, --url URL
   --include-unresolvable
-                        Include Non Resolvable URLs To The List
   -e EXTENSION, --extension EXTENSION
-                        What Extension To Look For, Default: js
-  -gop GOOGLE_PAGES, --google_pages GOOGLE_PAGES
-                        How Many Google Pages To Search, Default: 15
-  -gip GITHUB_PAGES, --github_pages GITHUB_PAGES
-                        How Many Github Pages To Search, Default: 5
+  -gop GOOGLE_PAGES, --google-pages GOOGLE_PAGES
+  -gip GITHUB_PAGES, --github-pages GITHUB_PAGES
   -o OUTPUT, --output OUTPUT
-
-```
+``
 
