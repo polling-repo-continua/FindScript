@@ -23,5 +23,5 @@ optional arguments:
   -gop GOOGLE_PAGES, --google-pages GOOGLE_PAGES
   -gip GITHUB_PAGES, --github-pages GITHUB_PAGES
   -o OUTPUT, --output OUTPUT
-``
+```
 
