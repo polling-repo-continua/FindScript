@@ -25,3 +25,4 @@ optional arguments:
   -o OUTPUT, --output OUTPUT
 ```
 
+Example: `python3 findscript.py -u hackerone.com`

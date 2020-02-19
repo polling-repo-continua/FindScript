@@ -46,6 +46,8 @@ def main():
     github.join()
     wayback.join()
 
+    if args.output:
+        f.close()
 
 if __name__ == "__main__":
     try:
