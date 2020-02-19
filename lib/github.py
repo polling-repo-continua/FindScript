@@ -44,7 +44,11 @@ def search_github(url, extension, pages, unresolvable, script_re, f):
         except IndexError:
             break
 
-        source_code = base64.b64decode(source_link.content).decode("utf-8")
+        try:
+            source_code = base64.b64decode(source_link.content).decode("utf-8")
+
+        except TypeError:
+            continue
 
         for script in re.findall(script_re, source_code):
 
